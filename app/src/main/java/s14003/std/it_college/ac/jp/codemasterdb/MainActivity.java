@@ -22,14 +22,14 @@ public class MainActivity extends AppCompatActivity {
         codeM = new CodeMaster_Database(this);
 
         ContentValues values = new ContentValues();
-        values.put(CodeMaster_Database.Columns.SEQUENCEID, 1);
-        values.put(CodeMaster_Database.Columns.CODEID, 1);
+        values.put(CodeMaster_Database.Columns.SEQUENCE_ID, 1);
+        values.put(CodeMaster_Database.Columns.CODE_ID, 1);
         values.put(CodeMaster_Database.Columns.VAULE, 100000);
 
         try {
             db.insert(CodeMaster_Database.TABLE_NAME, null, values);
         } finally {
-
+            db.close();
         }
     }
 }
