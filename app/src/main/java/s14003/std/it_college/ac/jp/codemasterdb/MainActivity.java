@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private CodeMaster_Database codeM;
@@ -13,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        codeM = new CodeMaster_Database(this);
         createBlacklist();
 
     }
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
             db.insert(CodeMaster_Database.TABLE_NAME, null, values);
         } finally {
             db.close();
+            Toast.makeText(this, "dbclose", Toast.LENGTH_SHORT).show();
         }
     }
 }
